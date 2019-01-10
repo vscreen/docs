@@ -24,11 +24,14 @@ the response will look like following:
 ### Client Operations
 
 Client will have the following operations:
-* play
-* pause
-* next
-* add
-* seek
+
+| Operation | Code |
+|-----------|:----:|
+| Play      |   0  |
+| Pause     |   1  |
+| Next      |   2  |
+| Add       |   3  |
+| Seek      |   4  |
 
 #### Play
 
