@@ -2,11 +2,44 @@
 
 ## Version 0.1.0
 
+### Common Pattern
+
+Sender Request Format:
+```json
+{
+  "operation": <op_code>,
+  ...
+}
+```
+
+Receiver Response Format:
+```json
+{
+  "operation": <op_code>,
+  "status": <status_code>
+}
+```
+
+### Operations
+
+Client
+
+| Operation | Code |
+|-----------|:----:|
+| Auth      |   0  |
+| Play      |   1  |
+| Pause     |   2  |
+| Next      |   3  |
+| Add       |   4  |
+| Seek      |   5  |
+
+
 ### Handshake
 
 Client will initiate the communication with the following format:
 ```json
 {
+  "operation": 0,
   "version": "0.1.0",
   "password": "<this is encrypted and set during server setup>"
 }
@@ -23,25 +56,8 @@ the response will look like following:
 
 ### Client Operations
 
-Client will have the following operations:
-
-| Operation | Code |
-|-----------|:----:|
-| Play      |   0  |
-| Pause     |   1  |
-| Next      |   2  |
-| Add       |   3  |
-| Seek      |   4  |
 
 #### Play
-
-```json
-{
-  "operation": 0
-}
-```
-
-#### Pause
 
 ```json
 {
@@ -49,7 +65,7 @@ Client will have the following operations:
 }
 ```
 
-#### Next
+#### Pause
 
 ```json
 {
@@ -57,11 +73,19 @@ Client will have the following operations:
 }
 ```
 
+#### Next
+
+```json
+{
+  "operation": 3
+}
+```
+
 #### Add
 
 ```json
 {
-  "operation": 3,
+  "operation": 4,
   "url": "<video's url, e.g. https://www.youtube.com/watch?v=PtHdTnfQ_NM>"
 }
 ```
@@ -73,7 +97,7 @@ Client will have the following operations:
 
 ```json
 {
-  "operation": 4,
+  "operation": 5,
   "position": 0
 }
 ```
