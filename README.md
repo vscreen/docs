@@ -29,9 +29,10 @@ Client
 | Auth      |   0  |
 | Play      |   1  |
 | Pause     |   2  |
-| Next      |   3  |
-| Add       |   4  |
-| Seek      |   5  |
+| Stop      |   3  |
+| Next      |   4  |
+| Add       |   5  |
+| Seek      |   6  |
 
 
 ### Handshake
@@ -73,7 +74,7 @@ the response will look like following:
 }
 ```
 
-#### Next
+#### Stop
 
 ```json
 {
@@ -81,11 +82,19 @@ the response will look like following:
 }
 ```
 
+#### Next
+
+```json
+{
+  "operation": 4
+}
+```
+
 #### Add
 
 ```json
 {
-  "operation": 4,
+  "operation": 5,
   "url": "<video's url, e.g. https://www.youtube.com/watch?v=PtHdTnfQ_NM>"
 }
 ```
@@ -97,7 +106,7 @@ the response will look like following:
 
 ```json
 {
-  "operation": 5,
+  "operation": 6,
   "position": 0
 }
 ```
